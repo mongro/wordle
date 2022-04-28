@@ -1,7 +1,9 @@
 import React from "react";
 
 const calcPercentages = (values, total) => {
-  return values.map((value) => Math.floor((value / total) * 100));
+  return values.map((value) =>
+    total === 0 ? 0 : Math.floor((value / total) * 100)
+  );
 };
 
 function DistributionGraph({ distribution, labels, total }) {
@@ -34,9 +36,11 @@ function Stats({ statistics }) {
       </div>
       <div className="p-2 text-center">
         <div className="text-3xl text-bold">
-          {`${Math.round(
-            (statistics.gamesWon / statistics.gamesPlayed) * 100
-          )}%`}
+          {`${
+            statistics.gamesPlayed === 0
+              ? 0
+              : Math.round((statistics.gamesWon / statistics.gamesPlayed) * 100)
+          }%`}
         </div>
         <div className="text-base"> Winrate</div>
       </div>
