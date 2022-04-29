@@ -22,7 +22,7 @@ module.exports = {
 
       screens: {
         height: {
-          raw: "(min-height: 600px)",
+          raw: "(min-height: 800px)",
           // => @media (min-width: 640px) { ... }
         },
       },
@@ -49,11 +49,12 @@ module.exports = {
           "100%": { transform: "translateY(0%)" },
         },
         collapse: {
-          "0%": { transform: "rotate(0deg)" },
-          "25%": { transform: "rotate(-200deg)" },
-          "50%": { transform: "rotate(-90deg)" },
-          "75%": { transform: "rotate(-170deg)" },
-          "100%": { transform: "rotate(-135deg)" },
+          "0%": { transform: "rotate(0deg)", opacity: 1 },
+          "20%": { transform: "rotate(-200deg)", opacity: 1 },
+          "40%": { transform: "rotate(-90deg)", opacity: 1 },
+          "60%": { transform: "rotate(-170deg)", opacity: 0.8 },
+          "80%": { transform: "rotate(-135deg)", opacity: 0.5 },
+          "100%": { transform: "rotate(-135deg)", opacity: 0 },
         },
         hide: {
           "100%": { transform: "rotateX(90deg)" },

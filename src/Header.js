@@ -2,20 +2,20 @@ import React from "react";
 
 const Header = ({ toggleDarkMode, setShowStatistics }) => {
   return (
-    <header className="flex items-center justify-center mb-2">
-      <button onClick={() => toggleDarkMode()}>
+    <header className="flex items-center justify-center mb-2 px-2">
+      <button onClick={() => toggleDarkMode()} aria-label="darkmode">
         <svg width="24px" height="24px" viewBox="0 0 24 24">
           <g
             id="🔍-Product-Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="ic_fluent_dark_theme_24_regular"
               fill="currentColor"
-              fill-rule="nonzero"
+              fillRule="nonzero"
             >
               <path
                 d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,20.5 L12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 Z"
@@ -29,6 +29,7 @@ const Header = ({ toggleDarkMode, setShowStatistics }) => {
       <button
         className="flex items-center justify-center"
         onClick={() => setShowStatistics(true)}
+        aria-label="showStatistics"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

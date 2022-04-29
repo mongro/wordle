@@ -12,7 +12,10 @@ function DistributionGraph({ distribution, labels, total }) {
   return (
     <div className="w-9/12">
       {percentages.map((value, index) => (
-        <div className="flex flex-row items-center h-5 text-base mb-2 w-full">
+        <div
+          className="flex flex-row items-center h-5 text-base mb-2 w-full"
+          key={index}
+        >
           <div className="">{labels[index]}</div>
           <div className="h-full w-full bg-zinc-400 ml-2">
             <div

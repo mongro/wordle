@@ -37,14 +37,15 @@ const Key = ({ disabled = false, onClick, classes = "", children }) => {
   );
 };
 
-const Keyboard = ({ letters, onClick }) => {
+const Keyboard = ({ letters, onClick, className }) => {
   return (
-    <div className="mt-2 w-full">
+    <div className={className}>
       <div className="flex justify-center mb-1">
         {TOPROW.map((letter) => (
           <Key
             classes={createBgClasses(letters.get(letter))}
             onClick={() => onClick(letter)}
+            key={letter}
           >
             {letter}
           </Key>
@@ -55,6 +56,7 @@ const Keyboard = ({ letters, onClick }) => {
           <Key
             classes={createBgClasses(letters.get(letter))}
             onClick={() => onClick(letter)}
+            key={letter}
           >
             {letter}
           </Key>
@@ -68,6 +70,7 @@ const Keyboard = ({ letters, onClick }) => {
           <Key
             classes={createBgClasses(letters.get(letter))}
             onClick={() => onClick(letter)}
+            key={letter}
           >
             {letter}
           </Key>

@@ -310,7 +310,7 @@ const Grid = ({ showStatistics, setShowStatistics }) => {
     }
 
     if (event.animationName === "hide") {
-      setStatusFlipped(
+      setStatusFlipped((statusFlipped) =>
         statusFlipped.map((status, i) => (index === i ? true : status))
       );
     }
@@ -355,7 +355,7 @@ const Grid = ({ showStatistics, setShowStatistics }) => {
           </Alert>
         ))}
       </div>
-      <div className="flex justify-center items-center grow">
+      <div className="flex justify-center items-center grow w-full max-w-[calc(min(100vh-200px,500px)*5/6)]">
         <Guesses
           cells={cells}
           onClick={handleClick}
@@ -369,11 +369,18 @@ const Grid = ({ showStatistics, setShowStatistics }) => {
           solution={solution}
         />
       </div>
-      {gameStatus === "RUNNING" || !showEndScreen ? (
-        <Keyboard letters={letters} onClick={handleInput} />
-      ) : (
-        <Countdown />
-      )}
+      <div className="relative w-full">
+        <Keyboard
+          letters={letters}
+          onClick={handleInput}
+          className={`mt-2 w-full ${
+            gameStatus !== "RUNNING" && showEndScreen && "invisible"
+          }`}
+        />
+        <div className={`absolute inset-0 z-3`}>
+          {gameStatus !== "RUNNING" && showEndScreen && <Countdown />}
+        </div>
+      </div>
       <Modal open={showStatistics} onClose={() => setShowStatistics(false)}>
         <Statistics statistics={statistics} />
       </Modal>

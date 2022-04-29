@@ -7,11 +7,13 @@ function Countdown() {
   tomorrow.setHours(0, 0, 0, 0);
   const { countdown } = useCountdown(tomorrow);
   return (
-    <div>
-      <div>Next Wordle in </div>
-      <span>{`${countdown.hours}:`}</span>
-      <span>{`${countdown.minutes}:`}</span>
-      <span>{`${countdown.seconds}`}</span>
+    <div className="flex items-center justify-center w-full h-full">
+      <div>
+        <span>Next Wordle in </span>
+        <span>{`${countdown.hours}:`}</span>
+        <span>{`${countdown.minutes}:`}</span>
+        <span>{`${countdown.seconds}`}</span>
+      </div>
     </div>
   );
 }

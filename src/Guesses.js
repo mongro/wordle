@@ -53,25 +53,29 @@ function Guesses({
     return classes;
   };
   return (
-    <div className="grid grid-cols-5  height:gap-4 gap-2 h-[calc(min(500px,100vh-200px))] w-[calc(min(500px,100vh-200px)*5/6)] grid-rows-6 ">
-      {cells.map((cell, index) => {
-        return (
-          <div className="relative">
-            <div
-              className={createCellClasses(cell.evaluation, index)}
-              onClick={() => onClick(index)}
-              onAnimationEnd={(event) => onAnimationEnd(event, index)}
-            >
-              {cell.letter}
-            </div>
-            {gameStatus === "LOST" && showEndScreen ? (
-              <div className="absolute inset-0 z-[-1] flex justify-center items-center border-2 border-black dark:border-white rounded font-bold h-full w-full">
-                {solution[index % 5]}
+    <div className="relative pt-[120%] w-full">
+      <div className="grid grid-cols-5  height:gap-4 gap-2  absolute inset-0 grid-rows-6 p-3 ">
+        {cells.map((cell, index) => {
+          return (
+            <div className="relative">
+              <div
+                className={createCellClasses(cell.evaluation, index)}
+                onClick={() => onClick(index)}
+                onAnimationEnd={(event) => onAnimationEnd(event, index)}
+              >
+                {cell.letter}
               </div>
-            ) : null}
-          </div>
-        );
-      })}
+              {gameStatus === "LOST" &&
+              showEndScreen &&
+              Math.floor(index / 5) === 5 ? (
+                <div className="absolute inset-0 z-[-1] flex justify-center items-center border-2 border-black dark:border-white rounded font-bold h-full w-full">
+                  {solution[index % 5]}
+                </div>
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
